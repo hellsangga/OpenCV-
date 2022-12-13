@@ -23,6 +23,27 @@ namespace luo
 	};
 
 	void threshold(const cv::Mat& ori, cv::Mat& res, int thresh, int maxval, int type);
+
+
+	enum AdaptiveThreshMethod
+	{
+		AT_MEAN,
+		AT_GAUSSIAN
+	};
+
+	enum AdaptiveThreshType
+	{
+		AT_THRESH_BINARAY,
+		AT_THRESH_BINARAY_INV
+	};
+
+	void adaptive_threshold(const cv::Mat& ori,
+		cv::Mat& res,
+		double maxval,
+		int method,
+		int type,
+		int block_size,
+		double k);
 }
 
 int main()
@@ -42,6 +63,14 @@ int main()
 	cv::Mat thresh2;
 	luo::threshold(mat, thresh2, 100, 255, luo::THRESH_TRUNC);
 	cv::imshow("thresh2", thresh2);
+
+	cv::Mat ad;
+	luo::adaptive_threshold(mat, ad, 255, luo::AT_MEAN, luo::AT_THRESH_BINARAY, 3, 1);
+	cv::imshow("ad", ad);
+
+	cv::Mat ad2;
+	luo::adaptive_threshold(mat, ad2, 255, luo::AT_GAUSSIAN, luo::AT_THRESH_BINARAY, 3, 1);
+	cv::imshow("ad2", ad2);
 
 	cv::waitKey(0);
 }

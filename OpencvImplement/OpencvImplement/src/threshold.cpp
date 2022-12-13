@@ -382,4 +382,78 @@ namespace luo
 			break;
 		}
 	}
+
+
+	enum AdaptiveThreshMethod
+	{
+		AT_MEAN,
+		AT_GAUSSIAN
+	};
+
+	enum AdaptiveThreshType
+	{
+		AT_THRESH_BINARAY,
+		AT_THRESH_BINARAY_INV
+	};
+
+	void adaptive_threshold(const cv::Mat& ori,
+		cv::Mat& res,
+		double maxval,
+		int method,
+		int type,
+		int block_size,
+		double k)
+	{
+		CV_Assert(ori.depth() == CV_8U);
+
+		cv::Mat gray = ori.clone();
+		if (gray.channels() != 1)
+			cv::cvtColor(gray, gray, cv::COLOR_BGR2GRAY);
+
+		int rows = gray.rows;
+		int cols = gray.cols;
+
+		switch (method)
+		{
+		case AT_MEAN:
+			cv::blur(gray, res, cv::Size(block_size, block_size));
+			break;
+
+		case AT_GAUSSIAN:
+			cv::GaussianBlur(gray, res, cv::Size(block_size, block_size), 0.0);
+			break;
+
+		default:
+			break;
+		}
+
+		int val1, val2;
+		if (type == AT_THRESH_BINARAY)
+		{
+			val1 = 0;
+			val2 = maxval;
+		}
+		else
+		{
+			val1 = maxval;
+			val2 = 0;
+		}
+
+		res = res - k;
+
+		uchar* res_p;
+		for (int i = 0; i < rows; i++)
+		{
+			const uchar* ori_p = ori.ptr<uchar>(i);
+			res_p = res.ptr<uchar>(i);
+
+			for (int j = 0; j < cols; j++)
+			{
+				if (res_p[j] >= ori_p[j])
+					res_p[j] = val1;
+				else
+					res_p[j] = val2;
+			}
+		}
+	}
 }
