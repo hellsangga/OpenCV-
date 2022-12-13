@@ -2,7 +2,6 @@
 
 namespace luo
 {
-	//×î½üÁÚ²åÖµ
 	void nearest_neighbor_interpolation(const cv::Mat& ori, cv::Mat& res, float multiple)
 	{
 		CV_Assert(ori.depth() == CV_8U);
@@ -39,6 +38,21 @@ namespace luo
 				}
 			}
 		}
+	}
+
+
+	void bilinear_interpolation(const cv::Mat& ori, cv::Mat& res, float multiple)
+	{
+		CV_Assert(ori.depth() == CV_8U);
+
+		int ori_width = ori.size().width;
+		int ori_height = ori.size().height;
+
+		float res_width = ori_width * multiple;
+		float res_height = ori_height * multiple;
+
+		if (res_width <= 10.0 || res_height <= 10.0)
+			return;
 	}
 }
 

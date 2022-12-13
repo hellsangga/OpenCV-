@@ -1,11 +1,11 @@
-﻿  interpolation.cpp
-d:\gitbase\opencv-implement\opencvimplement\opencvimplement\src\interpolation.cpp(19): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-d:\gitbase\opencv-implement\opencvimplement\opencvimplement\src\interpolation.cpp(29): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-d:\gitbase\opencv-implement\opencvimplement\opencvimplement\src\interpolation.cpp(34): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-d:\gitbase\opencv-implement\opencvimplement\opencvimplement\src\interpolation.cpp(54): warning C4305: “参数”: 从“double”到“float”截断
+﻿  pch.cpp
+  interpolation.cpp
+d:\gitbase\opencv-implement\opencvimplement\opencvimplement\src\interpolation.cpp(18): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-implement\opencvimplement\opencvimplement\src\interpolation.cpp(28): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-implement\opencvimplement\opencvimplement\src\interpolation.cpp(33): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-implement\opencvimplement\opencvimplement\src\interpolation.cpp(59): warning C4305: “参数”: 从“double”到“float”截断
+  main.cpp
   正在生成代码
-  1 of 73 functions ( 1.4%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  All 73 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   已完成代码的生成
   OpencvImplement.vcxproj -> D:\gitbase\opencv-implement\OpencvImplement\bin\Win32\Release\OpencvImplement.exe
