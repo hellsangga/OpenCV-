@@ -9,6 +9,20 @@ namespace luo
 	};
 
 	void interpolation(const cv::Mat& ori, cv::Mat& res, float multiple, int method);
+
+
+	enum ThresholdType
+	{
+		THRESH_OTSU,
+		THRESH_BINARY,
+		THRESH_BINARY_INV,
+		THRESH_TRUNC,
+		THRESH_TOZERO,
+		THRESH_TOZERO_INV,
+		THRESH_TRIANGLE
+	};
+
+	void threshold(const cv::Mat& ori, cv::Mat& res, int thresh, int maxval, int type);
 }
 
 int main()
@@ -17,15 +31,17 @@ int main()
 	if (mat.empty())
 		return -1;
 
+	cv::cvtColor(mat, mat, cv::COLOR_BGR2GRAY);
+
 	cv::imshow("mat", mat);
 
-	cv::Mat res;
-	luo::interpolation(mat, res, 1.5, luo::NEAREST_NEIGHBOR_INTERPOLATION);
-	cv::imshow("res", res);
+	cv::Mat thresh1;
+	luo::threshold(mat, thresh1, 100, 255, luo::THRESH_OTSU);
+	cv::imshow("thresh1", thresh1);
 
-	cv::Mat res2;
-	luo::interpolation(mat, res2, 1.5, luo::BILINEAR_INTERPOLATION);
-	cv::imshow("res2", res2);
+	cv::Mat thresh2;
+	luo::threshold(mat, thresh2, 100, 255, luo::THRESH_TRUNC);
+	cv::imshow("thresh2", thresh2);
 
 	cv::waitKey(0);
 }
