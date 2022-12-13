@@ -1,11 +1,10 @@
 #include "pch.h"
 
+void test_interpolation();
+
 int main()
 {
-	cv::Mat mat = cv::imread("testpic/cv2.PNG");
-	if (mat.empty())
-		std::cout << "empty\n";
-	else
-		cv::imshow("mat", mat);
+	test_interpolation();
+
 	cv::waitKey(0);
 }
