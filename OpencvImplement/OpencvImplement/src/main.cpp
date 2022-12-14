@@ -2,7 +2,7 @@
 
 namespace luo
 {
-	enum interpolation_method
+	enum InterpolationMethod
 	{
 		NEAREST_NEIGHBOR_INTERPOLATION,
 		BILINEAR_INTERPOLATION
@@ -23,6 +23,16 @@ namespace luo
 	};
 
 	void threshold(const cv::Mat& ori, cv::Mat& res, int thresh, int maxval, int type);
+
+
+	enum BlurMethod
+	{
+		MEAN_BLUR,
+		MEDIAN_BLUR,
+		GAUSSIAN_BLUR
+	};
+
+	void blur(const cv::Mat& ori, cv::Mat& res, cv::Size block_size, int method, double sigma_x = 0.0, double sigma_y = 0.0);
 }
 
 int main()
@@ -31,17 +41,21 @@ int main()
 	if (mat.empty())
 		return -1;
 
-	cv::cvtColor(mat, mat, cv::COLOR_BGR2GRAY);
+	//cv::cvtColor(mat, mat, cv::COLOR_BGR2GRAY);
 
 	cv::imshow("mat", mat);
 
-	cv::Mat thresh1;
-	luo::threshold(mat, thresh1, 100, 255, luo::THRESH_OTSU);
-	cv::imshow("thresh1", thresh1);
+	cv::Mat cvbl;
+	cv::blur(mat, cvbl, cv::Size(5, 5));
+	cv::imshow("ms", cvbl);
 
-	cv::Mat thresh2;
-	luo::threshold(mat, thresh2, 100, 255, luo::THRESH_TRUNC);
-	cv::imshow("thresh2", thresh2);
+	cv::Mat cvm;
+	cv::medianBlur(mat, cvm, 5);
+	cv::imshow("cms", cvm);
+
+	cv::Mat blurs;
+	luo::blur(mat, blurs, cv::Size(5, 5), luo::MEDIAN_BLUR);
+	cv::imshow("mb", blurs);
 
 	cv::waitKey(0);
 }

@@ -4,11 +4,6 @@ namespace luo
 {
 	void threshold_otsu(const cv::Mat& ori, cv::Mat& res, int maxval)
 	{
-		CV_Assert(ori.channels() == 1);
-
-		maxval = maxval <= 255 ? maxval : 255;
-		maxval = maxval >= 0 ? maxval : 0;
-
 		int rows = ori.rows;
 		int cols = ori.cols;
 
@@ -87,14 +82,6 @@ namespace luo
 
 	void threshold_binary(const cv::Mat& ori, cv::Mat& res, int thresh, int maxval)
 	{
-		CV_Assert(ori.channels() == 1);
-
-		maxval = maxval <= 255 ? maxval : 255;
-		maxval = maxval >= 0 ? maxval : 0;
-
-		thresh = thresh <= 255 ? thresh : 255;
-		thresh = thresh >= 0 ? thresh : 0;
-
 		int rows = ori.rows;
 		int cols = ori.cols;
 
@@ -120,14 +107,6 @@ namespace luo
 
 	void threshold_binary_inv(const cv::Mat& ori, cv::Mat& res, int thresh, int maxval)
 	{
-		CV_Assert(ori.channels() == 1);
-
-		maxval = maxval <= 255 ? maxval : 255;
-		maxval = maxval >= 0 ? maxval : 0;
-
-		thresh = thresh <= 255 ? thresh : 255;
-		thresh = thresh >= 0 ? thresh : 0;
-
 		int rows = ori.rows;
 		int cols = ori.cols;
 
@@ -153,11 +132,6 @@ namespace luo
 	
 	void threshold_trunc(const cv::Mat& ori, cv::Mat& res, int thresh)
 	{
-		CV_Assert(ori.channels() == 1);
-
-		thresh = thresh <= 255 ? thresh : 255;
-		thresh = thresh >= 0 ? thresh : 0;
-
 		int rows = ori.rows;
 		int cols = ori.cols;
 
@@ -183,11 +157,6 @@ namespace luo
 	
 	void threshold_tozero(const cv::Mat& ori, cv::Mat& res, int thresh)
 	{
-		CV_Assert(ori.channels() == 1);
-
-		thresh = thresh <= 255 ? thresh : 255;
-		thresh = thresh >= 0 ? thresh : 0;
-
 		int rows = ori.rows;
 		int cols = ori.cols;
 
@@ -213,11 +182,6 @@ namespace luo
 	
 	void threshold_tozero_inv(const cv::Mat& ori, cv::Mat& res, int thresh)
 	{
-		CV_Assert(ori.channels() == 1);
-
-		thresh = thresh <= 255 ? thresh : 255;
-		thresh = thresh >= 0 ? thresh : 0;
-
 		int rows = ori.rows;
 		int cols = ori.cols;
 
@@ -243,11 +207,6 @@ namespace luo
 
 	void threshold_triangle(const cv::Mat& ori, cv::Mat& res, int maxval)
 	{
-		CV_Assert(ori.type() == CV_8UC1);
-
-		maxval = maxval <= 255 ? maxval : 255;
-		maxval = maxval >= 0 ? maxval : 0;
-
 		int rows = ori.rows;
 		int cols = ori.cols;
 
@@ -333,7 +292,7 @@ namespace luo
 	}
 
 
-	enum ThresholdType
+	enum ThresholdMethod
 	{
 		THRESH_OTSU,
 		THRESH_BINARY,
@@ -346,7 +305,13 @@ namespace luo
 
 	void threshold(const cv::Mat& ori, cv::Mat& res, int thresh, int maxval, int type)
 	{
-		CV_Assert(ori.depth() == CV_8UC1);
+		CV_Assert(ori.type() == CV_8UC1);
+
+		maxval = maxval <= 255 ? maxval : 255;
+		maxval = maxval >= 0 ? maxval : 0;
+
+		thresh = thresh <= 255 ? thresh : 255;
+		thresh = thresh >= 0 ? thresh : 0;
 
 		switch (type)
 		{

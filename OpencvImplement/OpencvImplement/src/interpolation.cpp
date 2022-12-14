@@ -115,7 +115,7 @@ namespace luo
 		}
 	}
 
-	enum interpolation_method
+	enum InterpolationMethod
 	{
 		NEAREST_NEIGHBOR_INTERPOLATION,
 		BILINEAR_INTERPOLATION

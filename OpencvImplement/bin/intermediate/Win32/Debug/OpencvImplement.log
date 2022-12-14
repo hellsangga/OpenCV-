@@ -1,5 +1,17 @@
-﻿  interpolation.cpp
+﻿  blur.cpp
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(40): warning C4244: “=”: 从“float”转换到“uchar”，可能丢失数据
+  interpolation.cpp
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(16): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(26): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(31): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(53): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(67): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(68): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(76): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(77): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(112): warning C4244: “=”: 从“float”转换到“uchar”，可能丢失数据
   main.cpp
   pch.cpp
+  threshold.cpp
   正在生成代码...
-  OpencvImplement.vcxproj -> D:\gitbase\opencv-implement\OpencvImplement\bin\Win32\Debug\OpencvImplement.exe
+  OpencvImplement.vcxproj -> D:\gitbase\opencv-learning\OpencvImplement\bin\Win32\Debug\OpencvImplement.exe
