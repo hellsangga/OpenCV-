@@ -1,4 +1,6 @@
 ﻿  pch.cpp
+  blur.cpp
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(40): warning C4244: “=”: 从“float”转换到“uchar”，可能丢失数据
   interpolation.cpp
 e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(16): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
 e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(26): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
@@ -14,6 +16,10 @@ e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\interpolatio
 e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\threshold.cpp(434): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
 e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\threshold.cpp(438): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
   正在生成代码
+<<<<<<< HEAD
   All 99 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+=======
+  All 139 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+>>>>>>> c79f385659f53174865a35e864f34edb947752dc
   已完成代码的生成
   OpencvImplement.vcxproj -> E:\MyGitProject\opencv-learning\OpencvImplement\bin\Win32\Release\OpencvImplement.exe

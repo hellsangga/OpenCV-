@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 e:\mygitproject\opencv-learning\opencvimplement\bin\intermediate\win32\release\opencvimplement.pch
 e:\mygitproject\opencv-learning\opencvimplement\bin\intermediate\win32\release\vc141.pdb
 e:\mygitproject\opencv-learning\opencvimplement\bin\intermediate\win32\release\pch.obj
@@ -15,3 +16,18 @@ e:\mygitproject\opencv-learning\opencvimplement\bin\intermediate\win32\release\o
 e:\mygitproject\opencv-learning\opencvimplement\bin\intermediate\win32\release\opencvimplement.tlog\link.read.1.tlog
 e:\mygitproject\opencv-learning\opencvimplement\bin\intermediate\win32\release\opencvimplement.tlog\link.write.1.tlog
 e:\mygitproject\opencv-learning\opencvimplement\bin\intermediate\win32\release\opencvimplement.tlog\opencvimplement.write.1u.tlog
+=======
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\opencvimplement.pch
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\vc141.pdb
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\pch.obj
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\threshold.obj
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\main.obj
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\interpolation.obj
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\blur.obj
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\opencvimplement.tlog\cl.command.1.tlog
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\opencvimplement.tlog\cl.read.1.tlog
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\opencvimplement.tlog\cl.write.1.tlog
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\opencvimplement.tlog\link.command.1.tlog
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\opencvimplement.tlog\link.read.1.tlog
+d:\gitbase\opencv-learning\opencvimplement\bin\intermediate\win32\release\opencvimplement.tlog\link.write.1.tlog
+>>>>>>> c79f385659f53174865a35e864f34edb947752dc
