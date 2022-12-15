@@ -1,5 +1,28 @@
 #include "pch.h"
 
+class Timer
+{
+public:
+	Timer(std::string name)
+	{
+		m_name = name;
+		m_start = std::chrono::system_clock::now();
+		std::cout << m_name << " timer satrt\n";
+	}
+
+	~Timer()
+	{
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - m_start);
+
+		std::cout << m_name << " usage_time: " << duration.count() << " ms\n";
+	}
+
+private:
+	std::chrono::time_point<std::chrono::system_clock> m_start;
+	std::string m_name;
+};
+
 namespace luo
 {
 	enum InterpolationMethod
@@ -64,9 +87,16 @@ int main()
 
 	cv::imshow("mat", mat);
 
-	cv::Mat gb;
-	luo::blur(mat, gb, cv::Size(5, 5), luo::GAUSSIAN_BLUR, 1.0);
-	cv::imshow("gb", gb);
+	{
+		Timer t("MEDIAN_BLUR");
+		cv::Mat gb;
+		luo::blur(mat, gb, cv::Size(5, 5), luo::MEDIAN_BLUR, 1.0);
+		cv::imshow("gb", gb);
+	}
+
+	cv::Mat md;
+	cv::medianBlur(mat, md, 5);
+	cv::imshow("md", md);
 
 	cv::waitKey(0);
 }

@@ -1,29 +1,29 @@
 ﻿  pch.cpp
   blur.cpp
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(40): warning C4244: “=”: 从“float”转换到“uchar”，可能丢失数据
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(136): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(137): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(164): warning C4018: “<”: 有符号/无符号不匹配
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(169): warning C4018: “<”: 有符号/无符号不匹配
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(176): warning C4018: “<”: 有符号/无符号不匹配
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(178): warning C4018: “<”: 有符号/无符号不匹配
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(185): warning C4018: “<”: 有符号/无符号不匹配
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(187): warning C4018: “<”: 有符号/无符号不匹配
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(40): warning C4244: “=”: 从“float”转换到“uchar”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(153): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(154): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(181): warning C4018: “<”: 有符号/无符号不匹配
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(186): warning C4018: “<”: 有符号/无符号不匹配
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(193): warning C4018: “<”: 有符号/无符号不匹配
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(195): warning C4018: “<”: 有符号/无符号不匹配
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(202): warning C4018: “<”: 有符号/无符号不匹配
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(204): warning C4018: “<”: 有符号/无符号不匹配
   interpolation.cpp
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(16): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(26): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(31): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(53): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(67): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(68): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(76): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(77): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(112): warning C4244: “=”: 从“float”转换到“uchar”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(16): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(26): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(31): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(53): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(67): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(68): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(76): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(77): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(112): warning C4244: “=”: 从“float”转换到“uchar”，可能丢失数据
   main.cpp
   threshold.cpp
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\threshold.cpp(399): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-e:\mygitproject\opencv-learning\opencvimplement\opencvimplement\src\threshold.cpp(403): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\threshold.cpp(399): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\threshold.cpp(403): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
   正在生成代码
-  All 269 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 296 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   已完成代码的生成
-  OpencvImplement.vcxproj -> E:\MyGitProject\opencv-learning\OpencvImplement\bin\Win32\Release\OpencvImplement.exe
+  OpencvImplement.vcxproj -> D:\gitbase\opencv-learning\OpencvImplement\bin\Win32\Release\OpencvImplement.exe

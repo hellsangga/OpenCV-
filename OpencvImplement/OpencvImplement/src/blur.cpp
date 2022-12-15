@@ -44,6 +44,37 @@ namespace luo
 	}
 
 
+	void entropy_optimal_sort(std::vector<int>& values, int s, int e)
+	{
+		if (s >= e)
+			return;
+
+		int lt = s, i = s + 1, gt = e;
+		int mark_val = values[s];
+		while (i <= gt)
+		{
+			if (mark_val > values[i])
+			{
+				int temp = values[lt];
+				values[lt] = values[i];
+				values[i] = temp;
+				lt++;
+				i++;
+			}
+			else if (mark_val < values[i])
+			{
+				int temp = values[i];
+				values[i] = values[gt];
+				values[gt] = temp;
+				gt--;
+			}
+			else i++;
+		}
+
+		entropy_optimal_sort(values, s, lt - 1);
+		entropy_optimal_sort(values, gt + 1, e);
+	}
+
 	void median_blur(const cv::Mat& ori, cv::Mat& res, cv::Size block_size)
 	{
 		int rows = ori.rows;
@@ -80,27 +111,13 @@ namespace luo
 						{
 							int intensity = static_cast<int>(copy.ptr<uchar>(b_y)[b_x + c]);
 
-							if (count == 0)
-								block_val[0] = intensity;
-							else
-							{
-								for (int i = count - 1; i >= 0; i--)
-								{
-									if (intensity >= block_val[i])
-									{
-										block_val[i + 1] = intensity;
-										break;
-									}
-
-									int temp = block_val[i];
-									block_val[i] = intensity;
-									block_val[i + 1] = temp;
-								}
-							}
+							block_val[count] = intensity;
 
 							count++;
  						}
 					}
+
+					entropy_optimal_sort(block_val, 0, block_val.size() - 1);
 
 					res_p[x - offet_w + c] = block_val[block_total / 2];
 				}
