@@ -139,23 +139,6 @@ namespace luo
 		int cols = ori.cols * ori.channels();
 		int channels = ori.channels();
 
-		if (block_size.width < 3 || block_size.height < 3)
-			return;
-
-		//block_size.width = block_size.width < ceil(6 * sigma_x) ? block_size.width : ceil(6 * sigma_x);
-		//block_size.height = block_size.height < ceil(6 * sigma_y) ? block_size.height : ceil(6 * sigma_y);
-
-		if (block_size.width % 2 == 0)
-			block_size.width -= 1;
-		if (block_size.height % 2 == 0)
-			block_size.height -= 1;
-
-		int radius_x = floor(block_size.height / 2);
-		int radius_y = floor(block_size.width / 2);
-
-		cv::Mat copy;
-		cv::copyMakeBorder(ori, copy, radius_x, radius_x, radius_y, radius_y, cv::BORDER_REPLICATE);
-
 		if (sigma_x <= 0.0 && sigma_y <= 0.0)
 		{
 			sigma_x = 0.3 * ((block_size.width - 1) * 0.5 - 1) + 0.8;
@@ -169,6 +152,23 @@ namespace luo
 		{
 			sigma_y = sigma_x;
 		}
+
+		int max_wid =  static_cast<int>(6 * sigma_x + 1);
+		int max_hei = static_cast<int>(6 * sigma_y + 1);
+
+		block_size.width = std::min(block_size.width, max_wid);
+		block_size.height = std::min(block_size.height, max_hei);
+
+		if (block_size.width % 2 == 0)
+			block_size.width -= 1;
+		if (block_size.height % 2 == 0)
+			block_size.height -= 1;
+
+		int radius_x = floor(block_size.height / 2);
+		int radius_y = floor(block_size.width / 2);
+
+		cv::Mat copy;
+		cv::copyMakeBorder(ori, copy, radius_x, radius_x, radius_y, radius_y, cv::BORDER_REPLICATE);
 
 		const double PI = acos(-1);
 
@@ -269,6 +269,100 @@ namespace luo
 
 		default:
 			break;
+		}
+	}
+
+
+	void bilateral_filter(const cv::Mat& ori, cv::Mat& res, int d, double sigma_space, double sigma_color)
+	{
+		CV_Assert(ori.depth() == CV_8U);
+
+		res = cv::Mat::zeros(ori.size(), ori.type());
+
+		int rows = ori.rows;
+		int cols = ori.cols * ori.channels();
+		int channels = ori.channels();
+
+		d = std::max(d, 3);
+		if (d % 2 == 0) d--;
+
+		if (sigma_space <= 0.0)
+			sigma_space = 0.3 * ((d - 1) * 0.5 - 1) + 0.8;
+
+		int max_size = static_cast<int>(6 * sigma_space + 1);
+
+		d = std::min(d, max_size);
+		if (d % 2 == 0) d--;
+
+		int radius = d / 2;
+
+		cv::Mat copy;
+		cv::copyMakeBorder(ori, copy, radius, radius, radius, radius, cv::BORDER_REPLICATE);
+
+		std::vector<std::vector<double>> kernel(d, std::vector<double>(d));
+
+		const double PI = acos(-1);
+		double a_space = 1 / (2 * PI * sigma_space * sigma_space);
+		double a_color = sqrt(1 / (2 * PI * sigma_color * sigma_color));
+
+		for (int x = 0; x < d; x++)
+		{
+			int dx = x - radius;
+			for (int y = 0; y < d; y++)
+			{
+				int dy = y - radius;
+				kernel[x][y] = exp(-((dx * dx + dy * dy) / (2 * sigma_space * sigma_space)));
+			}
+		}
+
+		std::vector<std::vector<int>> temp_val(d, std::vector<int>(d));
+
+		for (int x = radius; x < rows + radius; x++)
+		{
+			for (int y = radius * channels; y < cols + radius * channels; y += channels)
+			{
+				for (int c = 0; c < channels; c++)
+				{
+					int index_x = -1;
+					for (int dx = x - radius; dx <= x + radius; dx++)
+					{
+						int index_y = -1;
+						index_x++;
+						for (int dy = (y + c) - radius * channels; dy <= (y + c) + radius * channels; dy += channels)
+						{
+							index_y++;
+							int intensity = copy.ptr<uchar>(dx)[dy];
+							int center = copy.ptr<uchar>(x)[y + c];
+							temp_val[index_x][index_y] = intensity;
+							kernel[index_x][index_y] *= exp(-(std::pow(center - intensity, 2) / (2 * sigma_color * sigma_color)));
+
+							//double w_color = exp(-(std::pow(center - intensity, 2) / (2 * sigma_color * sigma_color)));
+							//double w_space = exp(-((std::pow(x - dx, 2) + std::pow((y + c - dy) / channels, 2)) / (2 * sigma_space * sigma_space)));
+							//kernel[index_x][index_y] = w_color * w_space;
+						}
+					}
+
+					double sum = 0.0;
+					for (int i = 0; i < d; i++)
+					{
+						for (int j = 0; j < d; j++)
+						{
+							sum += kernel[i][j];
+						}
+					}
+
+					double convolution = 0.0;
+					for (int i = 0; i < d; i++)
+					{
+						for (int j = 0; j < d; j++)
+						{
+							convolution += temp_val[i][j] * (kernel[i][j] / sum);
+						}
+					}
+
+					res.ptr<uchar>(x - radius)[y - radius * channels + c] = static_cast<int>(convolution);
+				}
+			}
 		}
 	}
 }

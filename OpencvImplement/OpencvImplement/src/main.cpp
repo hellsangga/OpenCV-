@@ -75,28 +75,30 @@ namespace luo
 	};
 
 	void blur(const cv::Mat& ori, cv::Mat& res, cv::Size block_size, int method, double sigma_x = 0.0, double sigma_y = 0.0);
+
+	void bilateral_filter(const cv::Mat& ori, cv::Mat& res, int d, double sigma_space, double sigma_color);
 }
 
 int main()
 {
-	cv::Mat mat = cv::imread("D:/testpic/cv2.PNG");
+	cv::Mat mat = cv::imread("D:/testpic/cv7.PNG");
 	if (mat.empty())
 		return -1;
 
-	cv::cvtColor(mat, mat, cv::COLOR_BGR2GRAY);
+	//cv::cvtColor(mat, mat, cv::COLOR_BGR2GRAY);
 
 	cv::imshow("mat", mat);
 
 	{
-		Timer t("MEDIAN_BLUR");
+		Timer t("bilateral_filter");
 		cv::Mat gb;
-		luo::blur(mat, gb, cv::Size(5, 5), luo::MEDIAN_BLUR, 1.0);
+		luo::bilateral_filter(mat, gb, 19, 23.0, 200);
 		cv::imshow("gb", gb);
 	}
 
-	cv::Mat md;
-	cv::medianBlur(mat, md, 5);
-	cv::imshow("md", md);
+	cv::Mat cvb;
+	cv::bilateralFilter(mat, cvb, 19.0, 23.0, 200);
+	cv::imshow("cvb", cvb);
 
 	cv::waitKey(0);
 }

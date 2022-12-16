@@ -1,8 +1,8 @@
 ﻿  pch.cpp
   blur.cpp
 d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(40): warning C4244: “=”: 从“float”转换到“uchar”，可能丢失数据
-d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(153): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(154): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(167): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(168): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
 d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(181): warning C4018: “<”: 有符号/无符号不匹配
 d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(186): warning C4018: “<”: 有符号/无符号不匹配
 d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\blur.cpp(193): warning C4018: “<”: 有符号/无符号不匹配
@@ -20,10 +20,11 @@ d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp
 d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(77): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
 d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\interpolation.cpp(112): warning C4244: “=”: 从“float”转换到“uchar”，可能丢失数据
   main.cpp
+d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\main.cpp(100): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
   threshold.cpp
 d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\threshold.cpp(399): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
 d:\gitbase\opencv-learning\opencvimplement\opencvimplement\src\threshold.cpp(403): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
   正在生成代码
-  All 296 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 319 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   已完成代码的生成
   OpencvImplement.vcxproj -> D:\gitbase\opencv-learning\OpencvImplement\bin\Win32\Release\OpencvImplement.exe
